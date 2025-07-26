@@ -1,0 +1,76 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+		    // ------------------------------------------------------------------------------------------------------------
+			//	        | BSPC  |   ,   |   .   |   Q   |   `   | CMENU |
+			//	        |   C   |   S   |   I   |   O   |   F   |  DEL  |
+			// 	        |   R   |   T   |   E   |   A   |   N   |  RET  |
+			//	| MUTE  |   J   |   D   |   Y   |   L   |   B   | SHIFT |
+			//	|  MO2  |  MO1  | SPACE | SUPER |  MO3  |  ALT  | CTRL  |
+
+            bindings = <
+								&kp BSPC			&mt COMMA LT		&mt DOT GT		&kp Q			&mt GRAVE TILDE	&mt K_CMENU CAPS
+								&kp C 			&kp S			&kp I			&kp O			&kp F			&kp DEL
+								&kp R 			&kp T			&kp E			&kp A			&kp N			&kp RET
+                &mt C_PP C_MUTE	&kp J			&kp D			&kp Y			&kp L			&kp B			&sk LSHFT
+                &lt 2 ESC		&lt 1 TAB		&kp SPACE		&sk LGUI			&mo 3			&sk LALT			&sk LCTRL
+            >;
+        };
+        
+        second_layer {
+		    // ------------------------------------------------------------------------------------------------------------
+			//	        |   #   |   (   |   {   |   [   |       |       |
+			//	        |   X   |   W   |   U   |   K   |   Z   |       |
+			// 	        |   V   |   M   |   H   |   G   |   P   |   !   |
+			//	|       |   =   |   _   |   :   |   ;   |   '   |       |
+			//	|       |       |       |       |       |       |       |
+
+            bindings = <
+								&mt HASH	 AT		&mt LPAR	 RPAR	&mt LBRC RBRC	&mt LBKT LBKT	&trans			&trans
+								&kp X 			&kp W			&kp U			&kp K			&kp Z			&trans
+								&kp V 			&kp M			&kp H			&kp G			&kp P			&mt EXCL QMARK
+                &trans			&mt EQUAL PLUS	&mt UNDER MINUS	&mt COLON STAR	&mt SEMI	 FSLH	&mt SQT DQT		&trans
+                &trans			&trans			&trans			&trans			&trans			&trans			&trans
+            >;
+        };
+        
+        numbers_layer {
+		    // ------------------------------------------------------------------------------------------------------------
+			//	        |   ^   |   &   |   |   |   $   |       |       |
+			//	        |   1   |   2   |   3   |   4   |   5   |       |
+			//	        | L-ARR | D-ARR | U-ARR | R-ARR |   %   |   \   |
+			//	|       |   6   |   7   |   8   |   9   |   0   |       |
+			//	|       |       |       |       |       |       |       |
+
+            bindings = <
+								&kp	CARET		&kp 	AMPS			&kp 	PIPE			&kp 	DLLR			&trans			&trans
+								&kp N1 			&kp N2			&kp N3			&kp N4			&kp N5			&trans
+								&kp V 			&kp M			&kp H			&kp G			&kp PRCNT		&kp BSLH
+                &trans			&kp N6			&kp N7			&kp N8			&kp N9			&kp N0			&trans
+                &trans			&trans			&trans			&trans			&trans			&trans			&trans
+            >;
+        };
+        
+        function_layer {
+		    // ------------------------------------------------------------------------------------------------------------
+			//	        |       |       |       |       |       |       |
+			//	        |  F1   |  F2   |  F3   |  F4   |  F5   |  F6   |
+			//	        |       |       |       |       |       |       |
+			//	|       |       |       |       |       |       |       |
+			//	|       |       |       |       |       |       |       |
+
+            bindings = <
+								&trans			&trans			&trans			&trans			&trans			&trans
+								&trans			&trans			&trans			&trans			&trans			&trans
+								&trans 			&trans			&trans			&trans			&trans			&trans
+                &trans			&trans			&trans			&trans			&trans			&trans			&trans
+                &trans			&trans			&trans			&trans			&trans			&trans			&trans
+            >;
+        };
+    };
+};
