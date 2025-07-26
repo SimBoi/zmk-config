@@ -2,6 +2,25 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+	behaviors {
+        ht: mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            display-name = "Hold-Tap";
+        };
+        lt: layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+            display-name = "Layer-Tap";
+        };
+    };
+    
     keymap {
         compatible = "zmk,keymap";
 
@@ -14,10 +33,10 @@
             // |  MO2  |  MO1  | SPACE | SUPER |  MO3  |  ALT  | CTRL  |
 
             bindings = <
-                &kp BSPC &mt LT COMMA &mt GT DOT &kp Q &mt TILDE GRAVE &mt CAPS K_CMENU
+                &kp BSPC &ht LT COMMA &ht GT DOT &kp Q &ht TILDE GRAVE &ht CAPS K_CMENU
                 &kp C &kp S &kp I &kp O &kp F &kp DEL
                 &kp R &kp T &kp E &kp A &kp N &kp RET
-                &mt C_MUTE C_PP &kp J &kp D &kp Y &kp L &kp B &sk LSHFT
+                &ht C_MUTE C_PP &kp J &kp D &kp Y &kp L &kp B &sk LSHFT
                 &lt 2 ESC &lt 1 TAB &kp SPACE &sk LGUI &mo 3 &sk LALT &sk LCTRL
             >;
         };
@@ -31,10 +50,10 @@
             // |       |       |       |       |       |       |       |
 
             bindings = <
-                &mt AT HASH &mt RPAR LPAR &mt RBRC LBRC &mt RBKT LBKT &trans &trans
+                &ht AT HASH &ht RPAR LPAR &ht RBRC LBRC &ht RBKT LBKT &trans &trans
                 &kp X &kp W &kp U &kp K &kp Z &trans
-                &kp V &kp M &kp H &kp G &kp P &mt QMARK EXCL
-                &trans &mt PLUS EQUAL &mt MINUS UNDER &mt STAR COLON &mt FSLH SEMI &mt DQT SQT &trans
+                &kp V &kp M &kp H &kp G &kp P &ht QMARK EXCL
+                &trans &ht PLUS EQUAL &ht MINUS UNDER &ht STAR COLON &ht FSLH SEMI &ht DQT SQT &trans
                 &trans &trans &trans &trans &trans &trans &trans
             >;
         };
