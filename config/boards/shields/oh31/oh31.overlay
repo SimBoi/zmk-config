@@ -46,7 +46,7 @@
         >;
     };
     
-    encoder: encoder {
+    volume_encoder: encoder_volume {
         compatible = "alps,ec11";
         a-gpios = <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -56,11 +56,11 @@
     
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
-        sensors = <&encoder>;
+        sensors = <&volume_encoder>;
         triggers-per-rotation = <20>;
     };
     
-    &encoder {
+    &volume_encoder {
 		status = "okay";
 	};
 };
