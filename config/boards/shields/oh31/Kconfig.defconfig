@@ -3,8 +3,6 @@ if SHIELD_OH31
 config ZMK_KEYBOARD_NAME
     default "oh31"
 
-endif # SHIELD_OH31
-
 if ZMK_DISPLAY
 
 config I2C
@@ -31,3 +29,5 @@ choice LV_COLOR_DEPTH
 endchoice
 
 endif # LVGL
+
+endif # SHIELD_OH31
